@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Automation ROI Calculator — Hours Saved vs Make, n8n & Zapier Cost</title>
+<meta name="description" content="Free AI automation ROI calculator: compare manual staff cost with Make, n8n or Zapier plus AI API cost. See hours saved, monthly net savings, payback period and first-year ROI.">
+<link rel="canonical" href="https://alborotar.github.io/ai-roi-calculator-hub/ai-automation-roi/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Automation ROI & Hours-Saved Calculator">
+<meta property="og:description" content="Is automating that workflow worth it? Compare staff hours with Make/n8n/Zapier + AI API cost in 30 seconds.">
+<meta property="og:url" content="https://alborotar.github.io/ai-roi-calculator-hub/ai-automation-roi/">
+<meta property="og:site_name" content="AI ROI Calculator Hub">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Automation ROI & Hours-Saved Calculator","url":"https://alborotar.github.io/ai-roi-calculator-hub/ai-automation-roi/","applicationCategory":"BusinessApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Compare manual staff cost with no-code automation (Make, n8n, Zapier) plus AI API cost: hours saved, net savings, payback and ROI."}
+</script>
+</head>
+<body>
+<header class="site"><a class="brand" href="../">AI ROI Calculator Hub</a>
+<nav><a href="../ai-automation-roi/">Automation ROI</a><a href="../ai-voiceover-cost/">Voiceover cost</a><a href="../freelancer-rate-tax/">Freelancer rate & tax</a></nav></header>
+<main>
+<h1>AI Automation ROI & Hours-Saved Calculator</h1>
+<p class="lede">Enter one repetitive task (invoice entry, lead routing, support triage, report copy-paste). See how many staff hours an automation built on Make, n8n or Zapier plus an AI model would save, what it costs per month, and how fast the setup pays for itself. Everything runs in your browser; nothing is sent anywhere.</p>
+
+<form class="calc" data-calc="roi" autocomplete="off">
+<section class="card">
+<h2>Your workflow</h2>
+<div class="row">
+<div><label for="t">Tasks per month</label><input id="t" data-k="tasksPerMonth" type="number" min="0" value="600" inputmode="decimal"></div>
+<div><label for="m">Minutes per task (manual)</label><input id="m" data-k="minutesPerTask" type="number" min="0" value="6" inputmode="decimal"></div>
+</div>
+<label for="w">Loaded staff cost per hour <small>(wage + taxes + overhead, USD)</small></label><input id="w" data-k="hourlyCost" type="number" min="0" value="30" inputmode="decimal">
+<label for="a">Share of each task automated <small>(%)</small></label><input id="a" data-k="automationPct" type="number" min="0" max="100" value="80" inputmode="decimal">
+<h2>Automation cost</h2>
+<div class="row">
+<div><label for="p">Platform plan per month <small>(Make / n8n / Zapier)</small></label><input id="p" data-k="platformMonthly" type="number" min="0" value="29" inputmode="decimal"></div>
+<div><label for="ai">AI API cost per automated task</label><input id="ai" data-k="aiCostPerTask" type="number" min="0" step="0.001" value="0.02" inputmode="decimal"></div>
+</div>
+<label for="s">One-time setup cost <small>(your time or a builder's fee)</small></label><input id="s" data-k="setupCost" type="number" min="0" value="1500" inputmode="decimal">
+</section>
+<section class="card out" aria-live="polite">
+<h2>Result</h2>
+<div>Net savings</div>
+<div class="big" data-o="netMonthly">—</div>
+<dl>
+<dt>Hours saved per month</dt><dd data-o="hoursSaved">—</dd>
+<dt>Hours saved per year</dt><dd data-o="hoursSavedYearly">—</dd>
+<dt>Manual cost today / month</dt><dd data-o="manualMonthly">—</dd>
+<dt>Labor cost removed / month</dt><dd data-o="laborSavedMonthly">—</dd>
+<dt>Automation running cost / month</dt><dd data-o="automationMonthly">—</dd>
+<dt>Setup payback</dt><dd data-o="paybackMonths">—</dd>
+<dt>First-year net (after setup)</dt><dd data-o="firstYearNet">—</dd>
+<dt>First-year ROI</dt><dd data-o="roiPct">—</dd>
+</dl>
+<div class="cta">
+<strong>Build it yourself:</strong> Make has a free plan and a visual builder that non-developers can use for workflows like this.
+<br><a class="btn" data-aff="make" href="https://www.make.com/en/register" rel="sponsored noopener" target="_blank">Try Make free →</a>
+<p class="disclosure">Affiliate disclosure: the Make link may be an affiliate link. If you upgrade to a paid plan we may earn a commission at no extra cost to you. It does not change the math above.</p>
+</div>
+<div class="cta">
+<strong>Rather not build it?</strong> Ask for a fixed-price custom automation pilot: one workflow, built and handed over with docs.
+<br><a class="btn ghost" href="https://github.com/alborotar/ai-roi-calculator-hub/issues/new?title=Custom%20automation%20pilot%20request&body=Workflow%3A%0ATasks%20per%20month%3A%0ATools%20you%20use%3A" rel="noopener" target="_blank">Request a custom pilot →</a>
+</div>
+</section>
+</form>
+
+<h2>How the math works</h2>
+<p><strong>Manual hours</strong> = tasks × minutes ÷ 60. <strong>Hours saved</strong> = manual hours × share automated. <strong>Running cost</strong> = platform plan + automated tasks × AI cost per task. <strong>Net savings</strong> = hours saved × staff cost − running cost. <strong>Payback</strong> = setup ÷ net monthly savings. <strong>First-year ROI</strong> = (12 × net − setup) ÷ (12 × running cost + setup).</p>
+
+<section class="faq">
+<h2>FAQ</h2>
+<details><summary>What share of a task can AI automation realistically handle?</summary><p>For structured, rule-based work (copying fields between apps, routing emails, tagging tickets) 70–95% is common. For tasks needing judgment, start at 30–50% and keep a human review step. Use a conservative number; the calculator shows whether the project still pays.</p></details>
+<details><summary>Make vs n8n vs Zapier: which is cheapest?</summary><p>Make and Zapier charge per operation or task, so cost rises with volume; n8n can be self-hosted for the price of a small server, but you maintain it. Enter the plan you would actually buy in the platform field and compare.</p></details>
+<details><summary>How much does an AI API call cost per task?</summary><p>A short classification or extraction with a small model is often a fraction of a cent; long documents with a large model can be several cents. Check your provider's pricing for typical input and output length.</p></details>
+<details><summary>What should "loaded staff cost" include?</summary><p>Wage plus payroll taxes, benefits and overhead. A common rule of thumb is 1.25–1.4 × the hourly wage.</p></details>
+</section>
+<p>More tools: <a href="../ai-voiceover-cost/">AI voiceover cost calculator</a> · <a href="../freelancer-rate-tax/">freelancer rate & tax calculator</a></p>
+</main>
+<footer class="site">Free, open-source (MIT) and private: calculations run locally in your browser. Figures are estimates, not financial advice. <a href="https://github.com/alborotar/ai-roi-calculator-hub">Source on GitHub</a></footer>
+<script src="../calc.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

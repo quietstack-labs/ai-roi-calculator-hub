@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alborotar.github.io/ai-roi-calculator-hub/sitemap.xml

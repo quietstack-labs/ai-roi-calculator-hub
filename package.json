@@ -1,0 +1,8 @@
+{
+  "name": "ai-roi-calculator-hub",
+  "version": "1.0.0",
+  "description": "Free zero-dependency calculators: AI automation ROI, AI voiceover cost, freelancer hourly-to-fixed rate & tax take-home.",
+  "private": true,
+  "license": "MIT",
+  "scripts": { "test": "node test.mjs" }
+}

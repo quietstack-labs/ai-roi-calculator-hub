@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Voiceover & Podcast Cost Calculator — Studio vs AI Voice Pricing</title>
+<meta name="description" content="Free AI voiceover cost calculator: compare voice actor, freelancer or studio cost per finished minute with AI voice plans like ElevenLabs. Monthly and yearly savings for podcasts, YouTube and audiobooks.">
+<link rel="canonical" href="https://alborotar.github.io/ai-roi-calculator-hub/ai-voiceover-cost/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Voiceover & Podcast Cost Calculator">
+<meta property="og:description" content="Voice actor vs AI voice: what does a finished minute of audio really cost you?">
+<meta property="og:url" content="https://alborotar.github.io/ai-roi-calculator-hub/ai-voiceover-cost/">
+<meta property="og:site_name" content="AI ROI Calculator Hub">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AI Voiceover & Podcast Cost Calculator","url":"https://alborotar.github.io/ai-roi-calculator-hub/ai-voiceover-cost/","applicationCategory":"MultimediaApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Compare human voiceover (studio or freelancer) cost per finished minute with AI voice subscription tiers."}
+</script>
+</head>
+<body>
+<header class="site"><a class="brand" href="../">AI ROI Calculator Hub</a>
+<nav><a href="../ai-automation-roi/">Automation ROI</a><a href="../ai-voiceover-cost/">Voiceover cost</a><a href="../freelancer-rate-tax/">Freelancer rate & tax</a></nav></header>
+<main>
+<h1>AI Voiceover & Podcast Cost Calculator</h1>
+<p class="lede">How much do you spend per finished minute of narration today, and what would an AI voice plan cost for the same output? Works for YouTube narration, explainer videos, e-learning, podcasts and audiobooks. All tier values are editable because AI voice pricing changes often.</p>
+
+<form class="calc" data-calc="voice" autocomplete="off">
+<section class="card">
+<h2>Your output</h2>
+<label for="mm">Finished audio minutes per month</label><input id="mm" data-k="minutesPerMonth" type="number" min="0" value="120" inputmode="decimal">
+<h2>Human voiceover today</h2>
+<div class="row">
+<div><label for="hr">Rate per finished minute <small>(USD)</small></label><input id="hr" data-k="humanRatePerMinute" type="number" min="0" value="15" inputmode="decimal"></div>
+<div><label for="sf">Studio / session fees per month</label><input id="sf" data-k="humanSessionFees" type="number" min="0" value="100" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div><label for="eh">Editing hours per month</label><input id="eh" data-k="editHoursPerMonth" type="number" min="0" value="4" inputmode="decimal"></div>
+<div><label for="er">Editor rate per hour</label><input id="er" data-k="editHourlyRate" type="number" min="0" value="25" inputmode="decimal"></div>
+</div>
+<label for="ae">Editing still needed with AI voice <small>(% of today's editing)</small></label><input id="ae" data-k="aiEditPct" type="number" min="0" max="100" value="50" inputmode="decimal">
+<h2>AI voice plans <small>(illustrative, edit to current pricing)</small></h2>
+<div class="tablewrap"><table>
+<thead><tr><th>Plan</th><th class="n">$/mo</th><th class="n">Incl. min</th><th class="n">Extra $/min</th><th class="n">Your cost</th></tr></thead>
+<tbody>
+<tr data-tier><td><input data-t="name" value="AI Starter" aria-label="Plan name"></td><td><input data-t="monthly" type="number" min="0" value="5" aria-label="Monthly price"></td><td><input data-t="includedMinutes" type="number" min="0" value="30" aria-label="Included minutes"></td><td><input data-t="overagePerMinute" type="number" min="0" step="0.01" value="" placeholder="none" aria-label="Overage per minute"></td><td class="n" data-t-out>—</td></tr>
+<tr data-tier><td><input data-t="name" value="AI Creator" aria-label="Plan name"></td><td><input data-t="monthly" type="number" min="0" value="22" aria-label="Monthly price"></td><td><input data-t="includedMinutes" type="number" min="0" value="100" aria-label="Included minutes"></td><td><input data-t="overagePerMinute" type="number" min="0" step="0.01" value="0.30" aria-label="Overage per minute"></td><td class="n" data-t-out>—</td></tr>
+<tr data-tier><td><input data-t="name" value="AI Pro" aria-label="Plan name"></td><td><input data-t="monthly" type="number" min="0" value="99" aria-label="Monthly price"></td><td><input data-t="includedMinutes" type="number" min="0" value="500" aria-label="Included minutes"></td><td><input data-t="overagePerMinute" type="number" min="0" step="0.01" value="0.24" aria-label="Overage per minute"></td><td class="n" data-t-out>—</td></tr>
+<tr data-tier><td><input data-t="name" value="AI Scale" aria-label="Plan name"></td><td><input data-t="monthly" type="number" min="0" value="330" aria-label="Monthly price"></td><td><input data-t="includedMinutes" type="number" min="0" value="2000" aria-label="Included minutes"></td><td><input data-t="overagePerMinute" type="number" min="0" step="0.01" value="0.18" aria-label="Overage per minute"></td><td class="n" data-t-out>—</td></tr>
+</tbody></table></div>
+</section>
+<section class="card out" aria-live="polite">
+<h2>Result</h2>
+<div>Savings with the cheapest AI plan that fits</div>
+<div class="big" data-o="savingsMonthly">—</div>
+<dl>
+<dt>Human cost / month</dt><dd data-o="humanMonthly">—</dd>
+<dt>Human cost / finished minute</dt><dd data-o="humanPerFinishedMinute">—</dd>
+<dt>Cheapest AI plan</dt><dd data-o="bestName">—</dd>
+<dt>AI total / month (incl. editing)</dt><dd data-o="bestTotal">—</dd>
+<dt>AI cost / finished minute</dt><dd data-o="aiPerFinishedMinute">—</dd>
+<dt>Savings / year</dt><dd data-o="savingsYearly">—</dd>
+<dt>Savings %</dt><dd data-o="savingsPct">—</dd>
+</dl>
+<div class="cta">
+<strong>Try an AI voice:</strong> ElevenLabs offers a free tier to test voices, voice cloning and multilingual narration before you commit.
+<br><a class="btn" data-aff="elevenlabs" href="https://elevenlabs.io/" rel="sponsored noopener" target="_blank">Try ElevenLabs free →</a>
+<p class="disclosure">Affiliate disclosure: the ElevenLabs link may be an affiliate link. If you subscribe we may earn a commission at no extra cost to you. Plan names in the table are generic examples, not official prices.</p>
+</div>
+</section>
+</form>
+
+<h2>How the math works</h2>
+<p><strong>Human cost</strong> = minutes × rate per minute + session fees + editing hours × editor rate. <strong>AI plan cost</strong> = monthly price + minutes above the included amount × overage rate (a plan with no overage is skipped once you exceed it). <strong>AI total</strong> adds the share of editing you still do. <strong>Savings</strong> = human cost − cheapest AI total.</p>
+
+<section class="faq">
+<h2>FAQ</h2>
+<details><summary>How much does a human voiceover cost per minute?</summary><p>Rates vary widely: marketplace freelancers often charge $5–$30 per finished minute, union or studio talent much more, and broadcast use adds usage fees. Use your real quotes.</p></details>
+<details><summary>How are AI voice minutes counted?</summary><p>Most AI voice tools bill in characters or credits. A finished minute of narration is roughly 900–1,100 characters of English text, so convert your plan's character quota to minutes for this calculator.</p></details>
+<details><summary>Can I use AI voices commercially?</summary><p>Usually only on paid plans, and voice cloning of a real person needs their consent. Check the provider's terms for your use case.</p></details>
+<details><summary>Will AI replace editing entirely?</summary><p>No. You still review pronunciation, pacing and mix. That is why the calculator keeps a share of editing cost.</p></details>
+</section>
+<p>More tools: <a href="../ai-automation-roi/">AI automation ROI calculator</a> · <a href="../freelancer-rate-tax/">freelancer rate & tax calculator</a></p>
+</main>
+<footer class="site">Free, open-source (MIT) and private: calculations run locally in your browser. Figures are estimates, not financial advice. <a href="https://github.com/alborotar/ai-roi-calculator-hub">Source on GitHub</a></footer>
+<script src="../calc.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freelancer Hourly to Fixed-Price & Take-Home Tax Calculator (USD, EUR, KRW)</title>
+<meta name="description" content="Free freelancer rate calculator: turn an hourly rate into a fixed project price with scope buffer, then subtract platform fees, FX fees, withholding (e.g. Korea 3.3%) and income tax to see real take-home pay. USD, EUR and KRW.">
+<link rel="canonical" href="https://alborotar.github.io/ai-roi-calculator-hub/freelancer-rate-tax/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Freelancer Hourly-to-Fixed-Rate & Take-Home Calculator">
+<meta property="og:description" content="Quote fixed prices with confidence and see what you actually keep after fees and tax. USD / EUR / KRW.">
+<meta property="og:url" content="https://alborotar.github.io/ai-roi-calculator-hub/freelancer-rate-tax/">
+<meta property="og:site_name" content="AI ROI Calculator Hub">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Freelancer Hourly-to-Fixed-Rate & Tax Take-Home Calculator","url":"https://alborotar.github.io/ai-roi-calculator-hub/freelancer-rate-tax/","applicationCategory":"FinanceApplication","operatingSystem":"Any (web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Convert an hourly rate to a fixed project price and estimate take-home pay after platform fees, FX fees, withholding and income tax in USD, EUR or KRW."}
+</script>
+</head>
+<body>
+<header class="site"><a class="brand" href="../">AI ROI Calculator Hub</a>
+<nav><a href="../ai-automation-roi/">Automation ROI</a><a href="../ai-voiceover-cost/">Voiceover cost</a><a href="../freelancer-rate-tax/">Freelancer rate & tax</a></nav></header>
+<main>
+<h1>Freelancer Hourly-to-Fixed-Rate & Tax Take-Home Calculator</h1>
+<p class="lede">Turn your hourly rate into a fixed project quote with a scope buffer, then see what you actually keep after marketplace fees, currency conversion, withholding at source and income tax. Or enter the amount you want to keep and get the price to quote.</p>
+
+<form class="calc" data-calc="freelancer" autocomplete="off">
+<section class="card">
+<h2>Project</h2>
+<div class="row">
+<div><label for="cur">Currency</label><select id="cur" data-k="currency"><option>USD</option><option>EUR</option><option>KRW</option></select></div>
+<div><label for="hr">Hourly rate</label><input id="hr" data-k="hourlyRate" type="number" min="0" value="50" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div><label for="h">Estimated hours</label><input id="h" data-k="estimatedHours" type="number" min="0" value="40" inputmode="decimal"></div>
+<div><label for="b">Scope buffer <small>(%)</small></label><input id="b" data-k="bufferPct" type="number" min="0" value="20" inputmode="decimal"></div>
+</div>
+<h2>Fees & tax</h2>
+<div class="row">
+<div><label for="pf">Platform fee <small>(%)</small></label><input id="pf" data-k="platformFeePct" type="number" min="0" max="100" value="10" inputmode="decimal"></div>
+<div><label for="fx">FX / payout fee <small>(%)</small></label><input id="fx" data-k="fxFeePct" type="number" min="0" max="100" value="2" inputmode="decimal"></div>
+</div>
+<div class="row">
+<div><label for="tx">Effective income tax <small>(%)</small></label><input id="tx" data-k="taxRatePct" type="number" min="0" max="100" value="20" inputmode="decimal"></div>
+<div><label for="wh">Withholding at source <small>(%, KR: 3.3)</small></label><input id="wh" data-k="withholdingPct" type="number" min="0" max="100" value="0" inputmode="decimal"></div>
+</div>
+<h2>Reverse: what should I quote?</h2>
+<label for="tg">Take-home I want for this project</label><input id="tg" data-k="targetTakeHome" type="number" min="0" value="3000" inputmode="decimal">
+</section>
+<section class="card out" aria-live="polite">
+<h2>Result</h2>
+<div>Fixed price to quote</div>
+<div class="big" data-o="fixedPrice">—</div>
+<dl>
+<dt>Take-home after fees & tax</dt><dd data-o="takeHome">—</dd>
+<dt>Platform fee</dt><dd data-o="platformFee">—</dd>
+<dt>FX / payout fee</dt><dd data-o="fxFee">—</dd>
+<dt>Income tax (estimate)</dt><dd data-o="incomeTax">—</dd>
+<dt>Withheld at source</dt><dd data-o="withheldAtSource">—</dd>
+<dt>Cash received on payment</dt><dd data-o="cashAtPayment">—</dd>
+<dt>Tax still due at filing</dt><dd data-o="taxStillDue">—</dd>
+<dt>Effective hourly take-home</dt><dd data-o="effectiveHourly">—</dd>
+<dt>You keep</dt><dd data-o="keepPct">—</dd>
+<dt>Quote for target take-home</dt><dd data-o="requiredFixedPrice">—</dd>
+<dt>Hourly rate for target</dt><dd data-o="requiredHourly">—</dd>
+</dl>
+<div class="cta">
+<strong>Send the invoice:</strong> the free <a href="https://alborotar.github.io/invoice-usdc-kit/">Invoice USDC Kit</a> builds KRW / USD / USDC invoices with VAT, 3.3% withholding and a payment QR, all in the browser.
+<br><a class="btn" href="https://alborotar.github.io/invoice-usdc-kit/">Open invoice generator →</a>
+</div>
+<div class="cta">
+<strong>Selling products instead of hours?</strong> Check margin and break-even ad spend with the <a href="https://github.com/alborotar/ecommerce-margin-roas-kit">E-commerce Margin & ROAS Kit</a>.
+</div>
+</section>
+</form>
+
+<h2>How the math works</h2>
+<p><strong>Fixed price</strong> = hourly rate × hours × (1 + buffer). <strong>Platform fee</strong> = price × fee %. <strong>FX fee</strong> applies to what is left after the platform fee. <strong>Taxable income</strong> = price − both fees; <strong>take-home</strong> = taxable × (1 − tax %). Withholding (such as Korea's 3.3% on freelance payments) is a prepayment of tax deducted from the gross amount; the calculator shows the cash you receive and whether you owe more or get a refund at filing. <strong>Reverse quote</strong> = target ÷ ((1 − platform)(1 − FX)(1 − tax)).</p>
+
+<section class="faq">
+<h2>FAQ</h2>
+<details><summary>How do I convert an hourly rate to a fixed price?</summary><p>Estimate hours honestly, multiply by your rate, then add a buffer for revisions and unknowns (15–30% is common). Fixed pricing rewards you when you work faster than estimated.</p></details>
+<details><summary>What is the 3.3% withholding in Korea?</summary><p>Payments to individual freelancers in Korea usually have 3.3% (3% income tax + 0.3% local tax) withheld by the payer. It is credited against your annual income tax, so you may owe more or get a refund in May.</p></details>
+<details><summary>What effective tax rate should I enter?</summary><p>Use your expected total tax divided by your total income for the year, not your top bracket. If unsure, ask a local tax adviser; this tool gives estimates only.</p></details>
+</section>
+<p>More tools: <a href="../ai-automation-roi/">AI automation ROI calculator</a> · <a href="../ai-voiceover-cost/">AI voiceover cost calculator</a></p>
+</main>
+<footer class="site">Free, open-source (MIT) and private: calculations run locally in your browser. Figures are estimates, not tax or financial advice. <a href="https://github.com/alborotar/ai-roi-calculator-hub">Source on GitHub</a></footer>
+<script src="../calc.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>
