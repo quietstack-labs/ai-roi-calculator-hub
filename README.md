@@ -1,6 +1,6 @@
 # AI ROI Calculator Hub
 
-💼 **Go further:** [AI Ops & MCP Prompt + Automation Mega-Pack ($12)](https://playmaster72.gumroad.com/l/mxttvof) · [Solopreneur OS Vault — 24 templates ($19)](https://playmaster72.gumroad.com/l/solopreneur-os-vault)
+💼 **Related kits on Gumroad:** [AI Ops & MCP Prompt + Automation Mega-Pack ($12)](https://playmaster72.gumroad.com/l/mxttvof) · [Solopreneur OS Vault — 24 templates ($19)](https://playmaster72.gumroad.com/l/solopreneur-os-vault)
 
 
 Free, private, zero-dependency calculators that run entirely in the browser.
